@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc 4.8.2 i686-w64-mingw32 -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F401VC -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -DUSB_OTG_FS_CORE -DUSE_USB_OTG_FS -DSTM32F4XX -I..\..\..\..\..\Users\Komputer Kasi\Desktop\SEEDLABS\GENERATOR\Firmware\Generator_firmware\usb\USB_CORE_Driver\inc -I..\..\..\..\..\Users\Komputer Kasi\Desktop\SEEDLABS\GENERATOR\Firmware\Generator_firmware\user_libs\inc -I..\..\..\..\..\Users\Komputer Kasi\Desktop\SEEDLABS\GENERATOR\Firmware\Generator_firmware\usb\USB_CDC_Driver\inc -I..\..\..\..\..\Users\Komputer Kasi\Desktop\SEEDLABS\GENERATOR\Firmware\Generator_firmware\usb\USB_OTG_Driver -I..\..\..\..\..\Users\Komputer Kasi\Desktop\SEEDLABS\GENERATOR\Firmware\Generator_firmware\usb\USB_USER_DRIVER -I..\..\..\..\..\Users\Komputer Kasi\Desktop\SEEDLABS\GENERATOR\Firmware\Generator_firmware\cmsis_lib\include -I..\..\..\..\..\Users\Komputer Kasi\Desktop\SEEDLABS\GENERATOR\Firmware\Generator_firmware\cmsis -I..\..\..\..\..\Users\Komputer Kasi\Desktop\SEEDLABS\GENERATOR\Firmware\Generator_firmware -I..\..\..\..\..\Users\Komputer Kasi\Desktop\SEEDLABS\GENERATOR\Firmware\Generator_firmware\usb -I..\..\..\..\..\Users\Komputer Kasi\Desktop\SEEDLABS\GENERATOR\Firmware -I..\..\..\..\..\Users\Komputer Kasi\Desktop\SEEDLABS\GENERATOR\Firmware\Generator_firmware\cmsis_lib -I..\..\..\..\..\Users\Komputer Kasi\Desktop\SEEDLABS\GENERATOR\Firmware\Generator_firmware\usb\USB_CORE_Driver -I..\..\..\..\..\Users\Komputer Kasi\Desktop\SEEDLABS\GENERATOR\Firmware\Generator_firmware\cmsis_boot -I..\..\..\..\..\Users\Komputer Kasi\Desktop\SEEDLABS\GENERATOR\Firmware\Generator_firmware\usb\USB_OTG_Driver\inc -I..\..\..\..\..\Users\Komputer Kasi\Desktop\SEEDLABS\GENERATOR\Firmware\Generator_firmware\usb\USB_CDC_Driver -I..\..\..\..\..\Users\Komputer Kasi\Desktop\SEEDLABS\GENERATOR\Firmware\Generator_firmware\usb\USB_USER_DRIVER\inc -I..\..\..\..\..\Users\Komputer Kasi\Desktop\SEEDLABS\GENERATOR\Firmware\Generator_firmware\user_libs">
+      <target file="syscalls.o" lastModified="14db47ea8ee">
+         <source file="..\..\..\syscalls\syscalls.c" lastModified="14bad0a75e7"/>
+      </target>
+      <target file="usbd_usr.o" lastModified="14db47e92e7">
+         <source file="..\..\..\usb\USB_USER_DRIVER\src\usbd_usr.c" lastModified="14b836f04f5"/>
+      </target>
+      <target file="misc.o" lastModified="14db47eb509">
+         <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="14bad0b94cd"/>
+      </target>
+      <target file="FLASH.o" lastModified="14df642c495">
+         <source file="..\..\..\user_libs\src\FLASH.c" lastModified="14db47e05fe"/>
+      </target>
+      <target file="stm32fxxx_it.o" lastModified="14df642ccb9">
+         <source file="..\..\..\usb\USB_USER_DRIVER\src\stm32fxxx_it.c" lastModified="14db475d2c1"/>
+      </target>
+      <target file="ADC.o" lastModified="14df642c5f9">
+         <source file="..\..\..\user_libs\src\ADC.c" lastModified="14db47f41d4"/>
+      </target>
+      <target file="usbd_ioreq.o" lastModified="14db47eb8f3">
+         <source file="..\..\..\usb\USB_CORE_Driver\src\usbd_ioreq.c" lastModified="1363add9570"/>
+      </target>
+      <target file="usbd_req.o" lastModified="14db47eab5a">
+         <source file="..\..\..\usb\USB_CORE_Driver\src\usbd_req.c" lastModified="1363add9570"/>
+      </target>
+      <target file="usb_otg.o" lastModified="14db47eb247">
+         <source file="..\..\..\usb\USB_OTG_Driver\src\usb_otg.c" lastModified="14b78acc1d6"/>
+      </target>
+      <target file="stm32f4xx_tim.o" lastModified="14db47ebc2e">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="14bad0b1823"/>
+      </target>
+      <target file="usbd_cdc_core.o" lastModified="14db47eae05">
+         <source file="..\..\..\usb\USB_CDC_Driver\src\usbd_cdc_core.c" lastModified="14ce5143ebb"/>
+      </target>
+      <target file="usbd_desc.o" lastModified="14db47ea0f8">
+         <source file="..\..\..\usb\USB_USER_DRIVER\src\usbd_desc.c" lastModified="14b836c3757"/>
+      </target>
+      <target file="stm32f4xx_exti.o" lastModified="14db47eb42e">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_exti.c" lastModified="14bad0ad51f"/>
+      </target>
+      <target file="stm32f4xx_gpio.o" lastModified="14db47ea208">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="14bad0ab890"/>
+      </target>
+      <target file="usb_bsp.o" lastModified="14db47eaa0d">
+         <source file="..\..\..\usb\USB_USER_DRIVER\src\usb_bsp.c" lastModified="14b83f0dcc9"/>
+      </target>
+      <target file="usbd_core.o" lastModified="14db47e9693">
+         <source file="..\..\..\usb\USB_CORE_Driver\src\usbd_core.c" lastModified="14b788ff4ad"/>
+      </target>
+      <target file="stm32f4xx_usart.o" lastModified="14db47e93f2">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_usart.c" lastModified="14bad10d6c4"/>
+      </target>
+      <target file="LED.o" lastModified="14db47eb9d9">
+         <source file="..\..\..\user_libs\src\LED.c" lastModified="14bbd6168b6"/>
+      </target>
+      <target file="HMC345.o" lastModified="14df645fdf1">
+         <source file="..\..\..\user_libs\src\HMC345.c" lastModified="14df645f8d5"/>
+      </target>
+      <target file="SPI.o" lastModified="14dfc397acc">
+         <source file="..\..\..\user_libs\src\SPI.c" lastModified="14df6557322"/>
+      </target>
+      <target file="stm32f4xx_rcc.o" lastModified="14db47e98e0">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="14bad0a9d2c"/>
+      </target>
+      <target file="usb_hcd.o" lastModified="14db47eb06c">
+         <source file="..\..\..\usb\USB_OTG_Driver\src\usb_hcd.c" lastModified="14b78a8d2e8"/>
+      </target>
+      <target file="measurement functions.o" lastModified="14df642c1ef">
+         <source file="..\..\..\user_libs\src\measurement functions.c" lastModified="14db420c2be"/>
+      </target>
+      <target file="stm32f4xx_adc.o" lastModified="14db47e9bfa">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_adc.c" lastModified="14bad0b3f8d"/>
+      </target>
+      <target file="stm32f4xx_flash.o" lastModified="14db47ea315">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_flash.c" lastModified="14bad0af541"/>
+      </target>
+      <target file="usb_dcd.o" lastModified="14db47eb644">
+         <source file="..\..\..\usb\USB_OTG_Driver\src\usb_dcd.c" lastModified="1363add97ce"/>
+      </target>
+      <target file="usb_hcd_int.o" lastModified="14db47ebe0d">
+         <source file="..\..\..\usb\USB_OTG_Driver\src\usb_hcd_int.c" lastModified="14b78a8664a"/>
+      </target>
+      <target file="startup_stm32f4xx.o" lastModified="14db47e956c">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="14bad0a9d41"/>
+      </target>
+      <target file="usbd_cdc_vcp.o" lastModified="14df642c983">
+         <source file="..\..\..\usb\USB_USER_DRIVER\src\usbd_cdc_vcp.c" lastModified="14db4790583"/>
+      </target>
+      <target file="usb_core.o" lastModified="14db47e90ae">
+         <source file="..\..\..\usb\USB_OTG_Driver\src\usb_core.c" lastModified="1363add97bf"/>
+      </target>
+      <target file="stm32f4xx_syscfg.o" lastModified="14db47e8ee8">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_syscfg.c" lastModified="14bad0b68a7"/>
+      </target>
+      <target file="stm32f4xx_spi.o" lastModified="14db47eb353">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_spi.c" lastModified="14c6625df0e"/>
+      </target>
+      <target file="TIM.o" lastModified="14db480d10e">
+         <source file="..\..\..\user_libs\src\TIM.c" lastModified="14db407bbdb"/>
+      </target>
+      <target file="main.o" lastModified="14df642c3a5">
+         <source file="..\..\..\main.c" lastModified="14db48130b0"/>
+      </target>
+      <target file="system_stm32f4xx.o" lastModified="14db47ea795">
+         <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="14bad134778"/>
+      </target>
+      <target file="HMC833.o" lastModified="14dfc3978d5">
+         <source file="..\..\..\user_libs\src\HMC833.c" lastModified="14db49cd0a4"/>
+      </target>
+      <target file="usb_dcd_int.o" lastModified="14db47eac99">
+         <source file="..\..\..\usb\USB_OTG_Driver\src\usb_dcd_int.c" lastModified="1363add97de"/>
+      </target>
+      <target file="HMC624.o" lastModified="14df642bb86">
+         <source file="..\..\..\user_libs\src\HMC624.c" lastModified="14db4c2a167"/>
+      </target>
+   </processor>
+</history>
