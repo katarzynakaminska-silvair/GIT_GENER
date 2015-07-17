@@ -102,23 +102,23 @@
 	#define PLL_HIGH_CURRENT_PUMP	0x800000
 
 #define HMC833_REG_VCO_AUTOCAL 		0x0A
-	#define PLL_V_TUNE_RESOL2^(N)	N
+	#define PLL_V_TUNE_RESOL2POW(N)	N
 	#define PLL_VCO_CURVE_ADJ_DIS	0x00
-	#define PLL_VCO_CURVE_ADJ+1		0x08
-	#define PLL_VCO_CURVE_ADJ+2		0x10
-	#define PLL_VCO_CURVE_ADJ+3		0x18
-	#define PLL_VCO_CURVE_ADJ-1		0x20
-	#define PLL_VCO_CURVE_ADJ-2		0x30
-	#define PLL_VCO_CURVE_ADJ-3		0x38
+	#define PLL_VCO_CURVE_ADJ_P1	0x08
+	#define PLL_VCO_CURVE_ADJ_P2	0x10
+	#define PLL_VCO_CURVE_ADJ_P3	0x18
+	#define PLL_VCO_CURVE_ADJ_1		0x20
+	#define PLL_VCO_CURVE_ADJ_2		0x30
+	#define PLL_VCO_CURVE_ADJ_3		0x38
 	#define PLL_WAIT_STARTUP		0x00
 	#define PLL_WAIT_1T				0x40
 	#define PLL_WAIT_2T				0x80
 	#define PLL_WAIT_3T				0xC0
 	#define PLL_SAR_VCO_8			0x00
 	#define	PLL_FSM_CLK_XTAL		0x00
-	#define	PLL_FSM_CLK_XTAL/4		0x2000
-	#define	PLL_FSM_CLK_XTAL/16		0x4000
-	#define	PLL_FSM_CLK_XTAL/32		0x6000
+	#define	PLL_FSM_CLK_XTAL_4		0x2000
+	#define	PLL_FSM_CLK_XTAL_16		0x4000
+	#define	PLL_FSM_CLK_XTAL_32		0x6000
 	#define	PLL_XTAL_EDGE_BIST		0x8000
 	#define PLL_RDIVIDER_BYPASS		0x10000
 
@@ -141,23 +141,23 @@
 	#define PLL_MCOUNTER_ALL_CLK_ON	0x80000
 
 #define HMC833_REG_EXACT_FREQ_MODE 	0x0C
-	#define PLL_GPO_REG_0F			0x
-	#define PLL_GPO_LD_OUT			0x
-	#define PLL_GPO_LD_TRIG			0x
-	#define PLL_GPO_LD_WIN_OUT		0x
-	#define PLL_GPO_RING_OSC_TEST	0x
-	#define PLL_GPO_PU_CSP			0x
-	#define PLL_GPO_PD_CSP			0x
-	#define PLL_GPO_REF_BUF_OUT		0x
-	#define PLL_GPO_REF_DIV_OUT		0x
-	#define PLL_GPO_VCO_DIV_OUT		0x
-	#define PLL_GPO_MOD_CLK			0x
-	#define PLL_GPO_AUX_CLK			0x
-	#define PLL_GPO_AUX_SPI_CLK		0x
-	#define PLL_GPO_AUX_SPI_EN		0x
-	#define PLL_GPO_AUX_SPI_OUT		0x
-	#define PLL_GPO_PD_DN			0x
-	#define PLL_GPO_PD_UP			0x
+//	#define PLL_GPO_REG_0F			0x
+//	#define PLL_GPO_LD_OUT			0x
+//	#define PLL_GPO_LD_TRIG			0x
+//	#define PLL_GPO_LD_WIN_OUT		0x
+//	#define PLL_GPO_RING_OSC_TEST	0x
+//	#define PLL_GPO_PU_CSP			0x
+//	#define PLL_GPO_PD_CSP			0x
+//	#define PLL_GPO_REF_BUF_OUT		0x
+//	#define PLL_GPO_REF_DIV_OUT		0x
+//	#define PLL_GPO_VCO_DIV_OUT		0x
+//	#define PLL_GPO_MOD_CLK			0x
+//	#define PLL_GPO_AUX_CLK			0x
+//	#define PLL_GPO_AUX_SPI_CLK		0x
+//	#define PLL_GPO_AUX_SPI_EN		0x
+//	#define PLL_GPO_AUX_SPI_OUT		0x
+//	#define PLL_GPO_PD_DN			0x
+//	#define PLL_GPO_PD_UP			0x
 
 #define HMC833_REG_GPO_SPI_RDIV		0x0F
 #define HMC833_REG_VCO_TUNE			0x10
@@ -204,5 +204,14 @@
 
 #define HMC833_CEN GPIO_Pin_8 // GPIOD
 #define HMC833_SEN GPIO_Pin_12 //GPIOB
+
+
+
+//CLK SOURCES
+
+#define HSE_clk //10M
+#define PLL_clk //336M
+#define SYS_clk //84M
+#define PLLI2s_clk
 
 #endif

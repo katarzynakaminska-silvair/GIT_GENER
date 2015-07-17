@@ -14,8 +14,8 @@
 
 /* Exported functions ------------------------------------------------------- */
  void SPI_Initialize(void);
- void SPI_read_write( uint8_t *initbuff, uint16_t quantity, uint8_t *rxbuff, uint8_t *txbuff, uint8_t read);
- uint8_t  SPI_readOC(uint8_t opcode);
+ void SPI_read( uint8_t address, uint8_t *rxbuff);
+ void SPI_write( uint8_t address,  uint8_t *txbuff);
 
 #ifdef __cplusplus
 }

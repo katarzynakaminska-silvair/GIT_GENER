@@ -12,7 +12,7 @@ void SPI_Initialize(void)
 
 	/* Peripheral Clock Enable -------------------------------------------------*/
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_SPI2, ENABLE);
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
 
 	GPIO_PinAFConfig(GPIOB, GPIO_PinSource13 , GPIO_AF_SPI2);
 	GPIO_PinAFConfig(GPIOB, GPIO_PinSource14 , GPIO_AF_SPI2);
@@ -23,6 +23,11 @@ void SPI_Initialize(void)
 	GPIO_InitStructure.GPIO_Speed =   GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
+
+	GPIO_Init( GPIOB, &GPIO_InitStructure);
+
+	GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_12;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 
 	GPIO_Init( GPIOB, &GPIO_InitStructure);
 
@@ -39,57 +44,74 @@ void SPI_Initialize(void)
 
 	SPI_Init(SPI2, &SPI_InitStructure);
 	SPI_Cmd(SPI2, ENABLE);
+
+	GPIO_SetBits(GPIOB ,GPIO_Pin_12);
+	TIM_delay_ms(3);
+	GPIO_ResetBits(GPIOB ,GPIO_Pin_12);
 }
 
-void SPI_read_write( uint8_t *initbuff, uint16_t quantity, uint8_t *rxbuff, uint8_t *txbuff, uint8_t read)
+void SPI_read( uint8_t address, uint8_t *rxbuff)
 {
 	int i = 0;
-	int j = 0;
+	GPIO_SetBits(GPIOB, GPIO_Pin_12);
+	while (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_TXE) == RESET);
+	SPI_I2S_SendData(SPI2,(0x80 | (address << 1)));
+	while (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET);
+	SPI_I2S_ReceiveData(SPI2);
 
-
-	for(j=0; j<4; j++)
-		{
-			while (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_TXE) == RESET);
-			SPI_I2S_SendData(SPI2,initbuff[j]);
-			while (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET);
-			SPI_I2S_ReceiveData(SPI2);
-		}
-
-	for(i=0; i<quantity; i++)
+	for(i=0; i<3; i++)
 	{
 		while (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_TXE) == RESET);
-		if(!read)
-		{
-			SPI_I2S_SendData(SPI2,txbuff[i]);
-			while (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET);
-			SPI_I2S_ReceiveData(SPI2);
-		}
-		else
-		{
-			SPI_I2S_SendData(SPI2, 0xFF);
-		}
 
-		if(read)
-		{
-			while (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET);
+		SPI_I2S_SendData(SPI2, 0xFF);
+		while (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET);
 
-			rxbuff[i] = SPI_I2S_ReceiveData(SPI2);
-		}
+		rxbuff[i] = SPI_I2S_ReceiveData(SPI2);
 	}
+	GPIO_ResetBits(GPIOB, GPIO_Pin_12);
 }
 
-uint8_t SPI_readOC(uint8_t opcode)
+void SPI_write( uint8_t address,  uint8_t *txbuff)
 {
-	uint8_t temp;
-	GPIO_ResetBits(GPIOA, GPIO_Pin_4);
-		while (SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_TXE) == RESET);
-		SPI_I2S_SendData(SPI1, opcode);
-		while (SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_RXNE) == RESET);
-		SPI_I2S_ReceiveData(SPI1);
-		while (SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_TXE) == RESET);
-		SPI_I2S_SendData(SPI1, 0xFF);
-		while (SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_RXNE) == RESET);
-		temp = SPI_I2S_ReceiveData(SPI1);
-	GPIO_SetBits(GPIOA, GPIO_Pin_4);
-	return temp;
+	int i = 0;
+	GPIO_SetBits(GPIOB, GPIO_Pin_12);
+	while (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_TXE) == RESET);
+	SPI_I2S_SendData(SPI2,(0x00 | (address << 1) | (*(txbuff+0) >> 7)));
+//	while (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET);
+//	SPI_I2S_ReceiveData(SPI2);
+
+
+	for(i=0; i<3; i++)
+	{
+		while (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_TXE) == RESET);
+		SPI_I2S_SendData(SPI2,(txbuff[i] << 1 | (txbuff[i+1] >> 7)));
+	}
+
+	SPI_I2S_ReceiveData(SPI2);
+	while (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET);
+
+	GPIO_ResetBits(GPIOB, GPIO_Pin_12);
 }
+
+void SPI_writetwo( uint8_t address,  uint8_t *txbuff)
+{
+	int i = 0;
+	GPIO_SetBits(GPIOB, GPIO_Pin_12);
+	while (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_TXE) == RESET);
+	SPI_I2S_SendData(SPI2,(0x00 | (address << 1) | (*(txbuff+0) >> 7)));
+//	while (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET);
+//	SPI_I2S_ReceiveData(SPI2);
+
+
+	for(i=0; i<2; i++)
+	{
+		while (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_TXE) == RESET);
+		SPI_I2S_SendData(SPI2,(txbuff[i] << 1 | (txbuff[i+1] >> 7)));
+	}
+
+	SPI_I2S_ReceiveData(SPI2);
+	while (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET);
+
+	GPIO_ResetBits(GPIOB, GPIO_Pin_12);
+}
+

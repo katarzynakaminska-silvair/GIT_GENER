@@ -1,45 +1,45 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="4.8.4 -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wall -g -nostartfiles -Map=RF_TESTER.map -O0 --gc-sections -lm -lgcc -lc -LC:\CooCox\CoIDE\configuration\ProgramData\RF_TESTER -TC:\CooCox\CoIDE\configuration\ProgramData\RF_TESTER/arm-gcc-link.ld -g -L..\..\.. -lm">
-      <target file="RF_TESTER.elf" lastModified="14dfc3981aa">
-         <source file="..\obj\stm32f4xx_syscfg.o" lastModified="14db47e8ee8"/>
-         <source file="..\obj\usb_core.o" lastModified="14db47e90ae"/>
-         <source file="..\obj\HMC624.o" lastModified="14df642bb86"/>
-         <source file="..\obj\usbd_usr.o" lastModified="14db47e92e7"/>
-         <source file="..\obj\HMC345.o" lastModified="14df645fdf1"/>
-         <source file="..\obj\stm32f4xx_usart.o" lastModified="14db47e93f2"/>
-         <source file="..\obj\measurement functions.o" lastModified="14df642c1ef"/>
-         <source file="..\obj\HMC833.o" lastModified="14dfc3978d5"/>
-         <source file="..\obj\startup_stm32f4xx.o" lastModified="14db47e956c"/>
-         <source file="..\obj\usbd_core.o" lastModified="14db47e9693"/>
-         <source file="..\obj\main.o" lastModified="14df642c3a5"/>
-         <source file="..\obj\stm32f4xx_rcc.o" lastModified="14db47e98e0"/>
-         <source file="..\obj\FLASH.o" lastModified="14df642c495"/>
-         <source file="..\obj\ADC.o" lastModified="14df642c5f9"/>
-         <source file="..\obj\stm32f4xx_adc.o" lastModified="14db47e9bfa"/>
-         <source file="..\obj\usbd_desc.o" lastModified="14db47ea0f8"/>
-         <source file="..\obj\stm32f4xx_gpio.o" lastModified="14db47ea208"/>
-         <source file="..\obj\stm32f4xx_flash.o" lastModified="14db47ea315"/>
-         <source file="..\obj\usbd_cdc_vcp.o" lastModified="14df642c983"/>
-         <source file="..\obj\system_stm32f4xx.o" lastModified="14db47ea795"/>
-         <source file="..\obj\syscalls.o" lastModified="14db47ea8ee"/>
-         <source file="..\obj\usb_bsp.o" lastModified="14db47eaa0d"/>
-         <source file="..\obj\usbd_req.o" lastModified="14db47eab5a"/>
-         <source file="..\obj\usb_dcd_int.o" lastModified="14db47eac99"/>
-         <source file="..\obj\usbd_cdc_core.o" lastModified="14db47eae05"/>
-         <source file="..\obj\usb_hcd.o" lastModified="14db47eb06c"/>
-         <source file="..\obj\usb_otg.o" lastModified="14db47eb247"/>
-         <source file="..\obj\SPI.o" lastModified="14dfc397acc"/>
-         <source file="..\obj\stm32f4xx_spi.o" lastModified="14db47eb353"/>
-         <source file="..\obj\stm32f4xx_exti.o" lastModified="14db47eb42e"/>
-         <source file="..\obj\misc.o" lastModified="14db47eb509"/>
-         <source file="..\obj\usb_dcd.o" lastModified="14db47eb644"/>
-         <source file="..\obj\stm32fxxx_it.o" lastModified="14df642ccb9"/>
-         <source file="..\obj\usbd_ioreq.o" lastModified="14db47eb8f3"/>
-         <source file="..\obj\LED.o" lastModified="14db47eb9d9"/>
-         <source file="..\obj\TIM.o" lastModified="14db480d10e"/>
-         <source file="..\obj\stm32f4xx_tim.o" lastModified="14db47ebc2e"/>
-         <source file="..\obj\usb_hcd_int.o" lastModified="14db47ebe0d"/>
+      <target file="RF_TESTER.elf" lastModified="14e976e0040">
+         <source file="..\obj\stm32f4xx_syscfg.o" lastModified="14e976dc5f4"/>
+         <source file="..\obj\usb_core.o" lastModified="14e976dc797"/>
+         <source file="..\obj\HMC624.o" lastModified="14e976dc8ba"/>
+         <source file="..\obj\usbd_usr.o" lastModified="14e976dc9f6"/>
+         <source file="..\obj\HMC345.o" lastModified="14e976dcb05"/>
+         <source file="..\obj\stm32f4xx_usart.o" lastModified="14e976dcc4c"/>
+         <source file="..\obj\measurement functions.o" lastModified="14e976dcd2e"/>
+         <source file="..\obj\HMC833.o" lastModified="14e976dce21"/>
+         <source file="..\obj\startup_stm32f4xx.o" lastModified="14e976dcee6"/>
+         <source file="..\obj\usbd_core.o" lastModified="14e976dd078"/>
+         <source file="..\obj\main.o" lastModified="14e976dd288"/>
+         <source file="..\obj\stm32f4xx_rcc.o" lastModified="14e976dd3b4"/>
+         <source file="..\obj\FLASH.o" lastModified="14e976dd499"/>
+         <source file="..\obj\ADC.o" lastModified="14e976dd61c"/>
+         <source file="..\obj\stm32f4xx_adc.o" lastModified="14e976dd74c"/>
+         <source file="..\obj\usbd_desc.o" lastModified="14e976ddbed"/>
+         <source file="..\obj\stm32f4xx_gpio.o" lastModified="14e976ddd0e"/>
+         <source file="..\obj\stm32f4xx_flash.o" lastModified="14e976dde16"/>
+         <source file="..\obj\usbd_cdc_vcp.o" lastModified="14e976de179"/>
+         <source file="..\obj\system_stm32f4xx.o" lastModified="14e976de2db"/>
+         <source file="..\obj\syscalls.o" lastModified="14e976de3e2"/>
+         <source file="..\obj\usb_bsp.o" lastModified="14e976de4f3"/>
+         <source file="..\obj\usbd_req.o" lastModified="14e976de65b"/>
+         <source file="..\obj\usb_dcd_int.o" lastModified="14e976de7f3"/>
+         <source file="..\obj\usbd_cdc_core.o" lastModified="14e976de955"/>
+         <source file="..\obj\usb_hcd.o" lastModified="14e976dec10"/>
+         <source file="..\obj\usb_otg.o" lastModified="14e976dee5a"/>
+         <source file="..\obj\SPI.o" lastModified="14e976def70"/>
+         <source file="..\obj\stm32f4xx_spi.o" lastModified="14e976df08e"/>
+         <source file="..\obj\stm32f4xx_exti.o" lastModified="14e976df175"/>
+         <source file="..\obj\misc.o" lastModified="14e976df25a"/>
+         <source file="..\obj\usb_dcd.o" lastModified="14e976df383"/>
+         <source file="..\obj\stm32fxxx_it.o" lastModified="14e976df506"/>
+         <source file="..\obj\usbd_ioreq.o" lastModified="14e976df637"/>
+         <source file="..\obj\LED.o" lastModified="14e976df748"/>
+         <source file="..\obj\TIM.o" lastModified="14e976df82f"/>
+         <source file="..\obj\stm32f4xx_tim.o" lastModified="14e976df9a4"/>
+         <source file="..\obj\usb_hcd_int.o" lastModified="14e976dfbb2"/>
       </target>
    </processor>
 </history>
