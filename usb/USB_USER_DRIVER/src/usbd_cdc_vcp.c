@@ -33,6 +33,7 @@
 #include "usbd_cdc_vcp.h"
 #include "usb_conf.h"
 #include "HMC624.h"
+#include "HMC833.h"
 #include "ADC.h"
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -49,6 +50,7 @@ char buf[100] = {0};
 char chartab[20] = {0};
 uint8_t temp_float_tab[4] = {0};
 float tempf = 0;
+double temp_double = 0;
 uint32_t temp_peak_detector = 0;
 
 USART_InitTypeDef USART_InitStructure;
@@ -106,6 +108,7 @@ void double2Bytes(double val,uint8_t* bytes_array)
   // Assign bytes to input array
   memcpy(bytes_array, u.temp_array, 8);
 }
+
 /* Private functions ---------------------------------------------------------*/
 /**
   * @brief  VCP_Init
@@ -259,7 +262,6 @@ uint16_t VCP_DataTx (uint8_t* Buf, uint32_t Len)
 static uint16_t VCP_DataRx (uint8_t* Buf, uint32_t Len)
 {
 
-
 	LED_on(LED_BLUE);
 
 		  switch (Buf[0])
@@ -310,7 +312,14 @@ static uint16_t VCP_DataRx (uint8_t* Buf, uint32_t Len)
 			               4);
 //				USB_Rx_Cnt = 0;
 			break;
+			case FREQUENCY_GENERATE:
 
+				memcpy(&temp_double, Buf+1, 8);
+				select_frequency(temp_double);
+				HMC833_set_atten1(Buf[9]);
+				HMC833_set_atten2(Buf[10]);
+
+			break;
 			default:
 //				USB_Rx_Cnt = 0;
 			  break;

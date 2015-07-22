@@ -1,6 +1,30 @@
 #ifndef __HMC833_H_
 #define __HMC833_H_
 
+#include "stm32f4xx_conf.h"
+
+
+typedef struct
+{
+	uint8_t VCO_reg02[3];
+
+} Current_HMC833_config;
+
+extern uint8_t  r[3];
+
+#define TRUE 1
+#define FALSE 0
+
+#define TWO_POW_24 0x1000000
+
+#define ATTEN1_0 0x00
+#define ATTEN1_3 0x01
+#define ATTEN1_6 0x02
+#define ATTEN1_9 0x03
+
+#define ATTEN2_0 0x00
+#define ATTEN2_3 0x01
+
 //PLL REGISTER MAP
 #define HMC833_REG_ID				0x00
 #define HMC833_REG_OM_RX_ADDR		0x00
@@ -13,14 +37,14 @@
 	#define PLL_CP_ON				0x10
 	#define PLL_REF_BUF_ON			0x20
 	#define PLL_VCO_ON				0x40
-	#define PLL_GPIO_DRIVER_ON			0x80
+	#define PLL_GPIO_DRIVER_ON		0x80
 
 
 #define HMC833_REG_REFDIV			0x02
 	#define PLL_REFERENCE_DIV(N)	N
 #define HMC833_REG_FREQ				0x03
 	#define PLL_DIV_INT_PART(N)		N
-#define HMC833_REG_VCO_SPI			0x04
+#define HMC833_REG_FREQ_FRACT		0x04
 	#define PLL_DIV_FRACT_PART(N)	N
 #define HMC833_REG_SPI				0x05
 	#define PLL_SUBSYS_ID(N)		N & 0x07
@@ -122,7 +146,7 @@
 	#define	PLL_XTAL_EDGE_BIST		0x8000
 	#define PLL_RDIVIDER_BYPASS		0x10000
 
-#define HMC833_REG_PD				0x0B
+#define HMC833_REG_PD 				0x0B
 	#define PLL_DELAY(N)			N&0x07
 	#define PLL_SHORT_INPUTS		0x08
 	#define PLL_INVERT_PD_POLARITY	x10
@@ -140,7 +164,7 @@
 	#define PLL_MCOUNTER_LESS1023	0x40000
 	#define PLL_MCOUNTER_ALL_CLK_ON	0x80000
 
-#define HMC833_REG_EXACT_FREQ_MODE 	0x0C
+#define HMC833_EXACT_FREQ_MODE	 	0x0C
 //	#define PLL_GPO_REG_0F			0x
 //	#define PLL_GPO_LD_OUT			0x
 //	#define PLL_GPO_LD_TRIG			0x
@@ -159,11 +183,12 @@
 //	#define PLL_GPO_PD_DN			0x
 //	#define PLL_GPO_PD_UP			0x
 
-#define HMC833_REG_GPO_SPI_RDIV		0x0F
-#define HMC833_REG_VCO_TUNE			0x10
-#define HMC833_REG_SAR				0x11
-#define HMC833_REG_GPO2				0x12
-#define HMC833_REG_BIST				0x13
+
+#define HMC833_REG_GPO_SPI_RDIV			0x0F
+	#define HMC833_REG_VCO_TUNE			0x10
+	#define HMC833_REG_SAR				0x11
+	#define HMC833_REG_GPO2				0x12
+	#define HMC833_REG_BIST				0x13
 
 // VCO REG MAP ( via 05 register)
 #define HMC833_REG_VCO_TUNING		0x00
@@ -206,12 +231,8 @@
 #define HMC833_SEN GPIO_Pin_12 //GPIOB
 
 
+inline void HMC833_send_zero_to_05reg(void);
+void HMC833_set_frequency(double freq);
 
-//CLK SOURCES
-
-#define HSE_clk //10M
-#define PLL_clk //336M
-#define SYS_clk //84M
-#define PLLI2s_clk
 
 #endif

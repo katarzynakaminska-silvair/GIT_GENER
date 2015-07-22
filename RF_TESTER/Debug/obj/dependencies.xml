@@ -15,11 +15,18 @@
       <source file="..\..\..\usb\USB_CDC_Driver\inc\usbd_cdc_core.h" lastModified="14bb2af1f92">
          <include file="..\..\..\usb\USB_CORE_Driver\inc\usbd_ioreq.h"/>
       </source>
+      <source file="..\..\..\user_libs\inc\SPI.h" lastModified="14e06914322">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_spi.h"/>
+      </source>
       <source file="..\..\..\usb\USB_CORE_Driver\inc\usbd_ioreq.h" lastModified="1363add9570">
          <include file="..\..\..\usb\USB_CORE_Driver\inc\usbd_def.h"/>
          <include file="..\..\..\usb\USB_CORE_Driver\inc\usbd_core.h"/>
       </source>
-      <source file="..\..\..\user_libs\inc\HMC833.h" lastModified="14dfc395a6c">
+      <source file="..\..\..\user_libs\inc\HMC833.h" lastModified="14eabfc2580">
+         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
       </source>
       <source file="..\..\..\usb\USB_USER_DRIVER\src\stm32fxxx_it.c" lastModified="14db475d2c1">
          <include file="..\..\..\usb\USB_USER_DRIVER\inc\stm32fxxx_it.h"/>
@@ -30,11 +37,12 @@
          <include file="..\..\..\user_libs\inc\HMC624.h"/>
          <include file="..\..\..\usb\USB_CDC_Driver\inc\usbd_cdc_core.h"/>
       </source>
-      <source file="..\..\..\user_libs\src\TIM.c" lastModified="14db407bbdb">
+      <source file="..\..\..\user_libs\src\TIM.c" lastModified="14e6d09728f">
          <include file="..\..\..\user_libs\inc\TIM.h"/>
       </source>
-      <source file="..\..\..\user_libs\src\HMC833.c" lastModified="14db49cd0a4">
+      <source file="..\..\..\user_libs\src\HMC833.c" lastModified="14eb0e4f9aa">
          <include file="..\..\..\user_libs\inc\HMC833.h"/>
+         <include file="..\..\..\user_libs\inc\SPI.h"/>
       </source>
       <source file="..\..\..\cmsis\core_cm4.h" lastModified="14bad0a877f">
          <include file="..\..\..\cmsis\core_cmInstr.h"/>
@@ -149,7 +157,7 @@
       <source file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h" lastModified="14bad0a9d20">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
-      <source file="..\..\..\user_libs\src\HMC624.c" lastModified="14db4c2a167">
+      <source file="..\..\..\user_libs\src\HMC624.c" lastModified="14e96c69fd8">
          <include file="..\..\..\user_libs\inc\HMC624.h"/>
       </source>
       <source file="..\..\..\cmsis_lib\source\stm32f4xx_exti.c" lastModified="14bad0ad51f">
@@ -190,7 +198,7 @@
       </source>
       <source file="..\..\..\syscalls\syscalls.c" lastModified="14bad0a8587">
       </source>
-      <source file="..\..\..\usb\USB_USER_DRIVER\inc\usbd_cdc_vcp.h" lastModified="14db423645b">
+      <source file="..\..\..\usb\USB_USER_DRIVER\inc\usbd_cdc_vcp.h" lastModified="14eaf51817c">
          <include file="..\..\..\usb\USB_CDC_Driver\inc\usbd_cdc_core.h"/>
          <include file="..\..\..\usb\USB_USER_DRIVER\inc\usbd_conf.h"/>
          <include file="..\..\..\user_libs\inc\measurement functions.h"/>
@@ -206,13 +214,17 @@
       <source file="..\..\..\usb\USB_OTG_Driver\inc\usb_defines.h" lastModified="1363add9732">
          <include file="..\..\..\usb\USB_USER_DRIVER\inc\usb_conf.h"/>
       </source>
-      <source file="..\..\..\cmsis\core_cmFunc.h" lastModified="14bad0a8b84">
+      <source file="..\..\..\user_libs\src\SPI.c" lastModified="14e8c432080">
+         <include file="..\..\..\user_libs\inc\SPI.h"/>
       </source>
-      <source file="..\..\..\usb\USB_USER_DRIVER\src\usbd_cdc_vcp.c" lastModified="14db4790583">
+      <source file="..\..\..\usb\USB_USER_DRIVER\src\usbd_cdc_vcp.c" lastModified="14eb0d94a73">
          <include file="..\..\..\usb\USB_USER_DRIVER\inc\usbd_cdc_vcp.h"/>
          <include file="..\..\..\usb\USB_USER_DRIVER\inc\usb_conf.h"/>
          <include file="..\..\..\user_libs\inc\HMC624.h"/>
+         <include file="..\..\..\user_libs\inc\HMC833.h"/>
          <include file="..\..\..\user_libs\inc\ADC.h"/>
+      </source>
+      <source file="..\..\..\cmsis\core_cmFunc.h" lastModified="14bad0a8b84">
       </source>
       <source file="..\..\..\usb\USB_CORE_Driver\src\usbd_core.c" lastModified="14b788ff4ad">
          <include file="..\..\..\usb\USB_CORE_Driver\inc\usbd_core.h"/>
@@ -242,7 +254,7 @@
       <source file="..\..\..\cmsis_lib\include\stm32f4xx_adc.h" lastModified="14bad0b3f7c">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
-      <source file="..\..\..\user_libs\src\measurement functions.c" lastModified="14db420c2be">
+      <source file="..\..\..\user_libs\src\measurement functions.c" lastModified="14eb0a6a52f">
          <include file="..\..\..\user_libs\inc\measurement functions.h"/>
          <include file="..\..\..\user_libs\inc\LED.h"/>
          <include file="..\..\..\user_libs\inc\FLASH.h"/>
@@ -250,6 +262,8 @@
          <include file="..\..\..\user_libs\inc\LED.h"/>
          <include file="..\..\..\user_libs\inc\TIM.h"/>
          <include file="..\..\..\user_libs\inc\ADC.h"/>
+         <include file="..\..\..\user_libs\inc\HMC833.h"/>
+         <include file="..\..\..\user_libs\inc\HMC345.h"/>
       </source>
       <source file="..\..\..\usb\USB_OTG_Driver\inc\usb_dcd_int.h" lastModified="1363add9723">
          <include file="..\..\..\usb\USB_OTG_Driver\inc\usb_dcd.h"/>
@@ -306,7 +320,7 @@
          <include file="..\..\..\usb\USB_OTG_Driver\inc\usb_regs.h"/>
          <include file="..\..\..\usb\USB_OTG_Driver\inc\usb_defines.h"/>
       </source>
-      <source file="..\..\..\main.c" lastModified="14db48130b0">
+      <source file="..\..\..\main.c" lastModified="14eabd382e6">
          <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
          <include file="..\..\..\usb\USB_CDC_Driver\inc\usbd_cdc_core.h"/>
          <include file="..\..\..\usb\USB_CORE_Driver\inc\usbd_usr.h"/>
@@ -317,6 +331,8 @@
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
          <include file="..\..\..\usb\USB_USER_DRIVER\inc\usbd_cdc_vcp.h"/>
          <include file="..\..\..\user_libs\inc\HMC624.h"/>
+         <include file="..\..\..\user_libs\inc\HMC345.h"/>
+         <include file="..\..\..\user_libs\inc\HMC833.h"/>
          <include file="..\..\..\user_libs\inc\TIM.h"/>
       </source>
       <source file="..\..\..\usb\USB_OTG_Driver\inc\usb_dcd.h" lastModified="1363add9713">
@@ -329,7 +345,7 @@
       <source file="..\..\..\user_libs\inc\HMC345.h" lastModified="14df645f341">
          <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
       </source>
-      <source file="..\..\..\user_libs\src\HMC345.c" lastModified="14df645f8d5">
+      <source file="..\..\..\user_libs\src\HMC345.c" lastModified="14e96daafb8">
          <include file="..\..\..\user_libs\inc\HMC345.h"/>
       </source>
    </includePath>

@@ -63,11 +63,14 @@ int main(void)
 	HMC345_init();
 	ADC_init();
 	ADC_set_ST_values(&ADC_ST_values_inst);
-	HMC345_set_path(HMC345_PATH_4);
+	HMC345_set_path(HMC345_PATH_1);
 	HMC624_set_attenuation(0);
 	HMC833_set_clockout();
+	HMC833_initial_config();
+
 
 	TIM_warm_up();
+//	HMC833_set_frequency((double)2402.589);
 
 //	uint8_t tempbuf[3];
 //	uint8_t tempbuf5[3] = {0};
@@ -143,96 +146,7 @@ int main(void)
 //	SPI_write(HMC833_REG_FREQ , freqreg);
 
 
-	// SKOPIOWANE REJESTRY OD NICH
-	uint8_t  r[3] = {0};
-	r[0] = 0x00;
-	r[1] = 0x00;
-	r[2] = 0x02;
-	SPI_write(0x01 , r);
 
-	r[0] = 0x00;
-	r[1] = 0x00;
-	r[2] = 0x01;
-	SPI_write(0x02 , r);
-
-//	r[0] = 0x00;
-//	r[1] = 0x00;
-//	r[2] = 0x72;
-//	SPI_write(0x03 , r);
-
-//	r[0] = 0x00;
-//	r[1] = 0x00;
-//	r[2] = 0x00;
-//	SPI_write(0x04 , r);
-
-	r[0] = 0x00;
-	r[1] = 0x16;
-	r[2] = 0x28;
-	SPI_write(0x05 , r);
-
-	r[0] = 0x00;
-	r[1] = 0x60;
-	r[2] = 0xa0;
-	SPI_write(0x05 , r);
-
-	/////////////////////////////
-//	r[0] = 0x00;
-//	r[1] = 0x2A;
-//	r[2] = 0x98;
-//	SPI_write(0x05 , r);
-
-	r[0] = 0x00;
-	r[1] = 0x00;
-	r[2] = 0x00;
-	SPI_write(0x05 , r);
-
-	r[0] = 0x20;
-	r[1] = 0x03;
-	r[2] = 0xca;
-	SPI_write(0x06 , r);
-
-	r[0] = 0x00;
-	r[1] = 0x01;
-	r[2] = 0x4d;
-	SPI_write(0x07 , r);
-
-
-	r[0] = 0xc1;
-	r[1] = 0xbe;
-	r[2] = 0xff;
-	SPI_write(0x08 , r);
-
-	r[0] = 0x00;
-	r[1] = 0x3f;
-	r[2] = 0xff;
-	SPI_write(0x09 , r);
-
-	r[0] = 0x00;
-	r[1] = 0x20;
-	r[2] = 0x46;
-	SPI_write(0x0a , r);
-
-	r[0] = 0x0f;
-	r[1] = 0x80;
-	r[2] = 0x61;
-	SPI_write(0x0b , r);
-
-	r[0] = 0x00;
-	r[1] = 0x00;
-	r[2] = 0x00;
-	SPI_write(0x0c , r);
-	SPI_write(0x0d , r);
-	SPI_write(0x0e , r);
-
-	r[0] = 0x00;
-	r[1] = 0x00;
-	r[2] = 0x81;
-	SPI_write(0x0f , r);
-
-	r[0] = 0x00;
-	r[1] = 0x00;
-	r[2] = 0xf0;
-	SPI_write(0x03 , r);
 
 
   USBD_Init(&USB_OTG_dev,

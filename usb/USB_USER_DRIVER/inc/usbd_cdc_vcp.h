@@ -44,15 +44,17 @@
 extern Cali_reglin Cali_reglin_inst;
 extern Current_results Current_results_inst;
 
-enum command_codes { 	POWER_MEASUREMENT = 0x01,
-						POWER_MEASUREMENT_KALI = 0x02,
-						FREQUENCY_MEASUREMENT = 0x03,
-						ATTENUATION_SET = 0x04,
-						REGLINP_SET = 0x05,
+enum command_codes {
+//						POWER_MEASUREMENT = 0x01,
+//						POWER_MEASUREMENT_KALI = 0x02,
+//						FREQUENCY_MEASUREMENT = 0x03,
+//						ATTENUATION_SET = 0x04,
+//						REGLINP_SET = 0x05,
 						SERIALNUM_SET = 0x06,
 						SERIALNUM_GET = 0x07,
 						FIRMWARE_VER_GET = 0x08,
-						PEAK_DETECTOR = 0x09
+//						PEAK_DETECTOR = 0x09,
+						FREQUENCY_GENERATE = 0x0A
 					};
 extern uint8_t USB_Rx_Buffer   [CDC_DATA_MAX_PACKET_SIZE];
 extern uint32_t APP_Rx_length ;
@@ -66,7 +68,8 @@ extern float tempf;
 float* tempf_ptr;
 extern uint8_t temp_float_tab[4];
 //float *float_pointer;
-//double *double_pointer;
+double* freq_pointer;
+extern double temp_double;
 static uint8_t firmware_version[3] = {1,1,2}; //major, minor, release
 extern USB_OTG_CORE_HANDLE           USB_OTG_dev;
 
