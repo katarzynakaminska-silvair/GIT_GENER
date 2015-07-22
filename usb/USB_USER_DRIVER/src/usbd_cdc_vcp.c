@@ -316,8 +316,14 @@ static uint16_t VCP_DataRx (uint8_t* Buf, uint32_t Len)
 
 				memcpy(&temp_double, Buf+1, 8);
 				select_frequency(temp_double);
+				TIM_delay_ms(1);
+//				HMC833_set_divider(2);
+				TIM_delay_ms(1);
 				HMC833_set_atten1(Buf[9]);
+				TIM_delay_ms(1);
 				HMC833_set_atten2(Buf[10]);
+				memcpy(&tempf, Buf+11, 4);
+				HMC624_set_attenuation(tempf);
 
 			break;
 			default:

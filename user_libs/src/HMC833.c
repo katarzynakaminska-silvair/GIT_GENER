@@ -57,6 +57,14 @@ void HMC833_initial_config(void)
 //	r[2] = 0x98;
 //	SPI_write(0x05 , r);
 
+	///////////////////////////////// proba tlumikow internal
+//	r[0] = 0x00;
+//	r[1] = 0x00;
+//	r[2] = 0x90;
+//	SPI_write(HMC833_REG_SPI , r);
+//	HMC833_set_atten1(ATTEN1_3);
+/////////////////////////////////////////////
+
 	HMC833_send_zero_to_05reg();
 //intiger
 //	r[0] = 0x20;
@@ -130,9 +138,9 @@ void HMC833_initial_config(void)
 void HMC833_set_frequency(double freq)
 {
 	uint8_t *temp_ptr;
+	freq /= XREFP_DIV_R_FREQ_MHZ;
 	long int number = (long int)floor(freq);
 	double fraction = freq - (double)number;
-	number/=10;
 	temp_ptr = &number;
 	r[2] = temp_ptr[0];
 	r[1] = temp_ptr[1];
@@ -166,9 +174,30 @@ void HMC833_set_multiplier(uint8_t doubler_not_fundamental)
 	HMC833_send_zero_to_05reg();
 }
 
-void HMC833_set_mute()
+void HMC833_set_divider(uint8_t div)
 {
+	div &= 0b00111111;
+	if(div&0b00000001)Current_HMC833_config_inst.VCO_reg02[2] |= 0b10000000 ;
+	else Current_HMC833_config_inst.VCO_reg02[2] &= ~0b10000000 ;
 
+	if(div&0b00000010)Current_HMC833_config_inst.VCO_reg02[1] |= 0b00000001 ;
+	else Current_HMC833_config_inst.VCO_reg02[1] &= ~0b00000001 ;
+
+	if(div&0b00000100)Current_HMC833_config_inst.VCO_reg02[1] |= 0b00000010 ;
+	else Current_HMC833_config_inst.VCO_reg02[1] &= ~0b00000010 ;
+
+	if(div&0b00001000)Current_HMC833_config_inst.VCO_reg02[1] |= 0b00000100 ;
+	else Current_HMC833_config_inst.VCO_reg02[1] &= ~0b00000100 ;
+
+	if(div&0b00010000)Current_HMC833_config_inst.VCO_reg02[1] |= 0b00001000 ;
+	else Current_HMC833_config_inst.VCO_reg02[1] &= ~0b00001000 ;
+
+
+	if(div&0b00100000)Current_HMC833_config_inst.VCO_reg02[1] |= 0b00010000 ;
+	else Current_HMC833_config_inst.VCO_reg02[1] &= ~0b00010000 ;
+
+	SPI_write(HMC833_REG_SPI , Current_HMC833_config_inst.VCO_reg02);
+	HMC833_send_zero_to_05reg();
 }
 
 void HMC833_set_atten1(uint8_t attenuation1)
@@ -199,10 +228,10 @@ void HMC833_set_atten2(uint8_t attenuation1)
 	switch (attenuation1)
 	{
 		case ATTEN2_0:
-			Current_HMC833_config_inst.VCO_reg02[1] |= 0x80;
+			Current_HMC833_config_inst.VCO_reg02[1] |= 0b10000000;
 			break;
 		case ATTEN2_3:
-			Current_HMC833_config_inst.VCO_reg02[1] &= (~0x80);
+			Current_HMC833_config_inst.VCO_reg02[1] &= 0b01111111;
 			break;
 	}
 	SPI_write(HMC833_REG_SPI , Current_HMC833_config_inst.VCO_reg02);
