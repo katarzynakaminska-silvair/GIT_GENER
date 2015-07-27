@@ -44,18 +44,18 @@ void clear_buf(char* buf, int bytes_to_clear)
 
 void select_frequency(double freq)
 {
-	if(freq < 3000)//f podstawowa mno¿nik wyjciowy ustawiæ na 1
+	if(freq < 3011)//f podstawowa mno¿nik wyjciowy ustawiæ na 1
 	{
 		HMC345_set_path(HMC345_PATH_1);
 		HMC833_set_multiplier(FALSE);
 		HMC833_set_frequency(freq);
 	}
 
-	else if(freq < 4900)//ustawiæ f podstawow¹ na 1/2freq; mno¿nik na 2
+	else if(freq < 4700)//ustawiæ f podstawow¹ na 1/2freq; mno¿nik na 2
 	{
 		HMC345_set_path(HMC345_PATH_2);
 		HMC833_set_frequency(freq/2.0);
-//		TIM_delay_ms(1);
+		TIM_delay_ms(1);
 		while(HMC833_is_busy()){}
 		HMC833_set_multiplier(TRUE);
 	}
@@ -63,7 +63,7 @@ void select_frequency(double freq)
 	{
 		HMC345_set_path(HMC345_PATH_3);
 		HMC833_set_frequency(freq/2.0);
-//		TIM_delay_ms(1);
+		TIM_delay_ms(1);
 		while(HMC833_is_busy()){}
 		HMC833_set_multiplier(TRUE);
 	}
